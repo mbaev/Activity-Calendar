@@ -17,10 +17,10 @@ task 'build', () ->
     js = "(function(){\n#{js}\n})();"
     opt = {compilation_level: 'SIMPLE_OPTIMIZATIONS'}
 
-    fs.writeFileSync "#{__dirname}/lib/js-chart-widgets.js", js
+    fs.writeFileSync "#{__dirname}/lib/activity-calendar.js", js
     closure_compiler.compile js, opt, (e, js) ->
       throw e if e
-      fs.writeFileSync "#{__dirname}/lib/js-chart-widgets.min.js", js
+      fs.writeFileSync "#{__dirname}/lib/activity-calendar.min.js", js
 
 
 task 'test', () ->

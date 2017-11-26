@@ -6,8 +6,8 @@ For build the widget need to be installed NodeJS na npm.
 npm install
 cake build
 
-#--> lib/js-chart-widgets.js
-#--> lib/js-chart-widgets.min.js
+#--> lib/activity-calendar.js
+#--> lib/activity-calendar.min.js
 </pre>
 
 ## How to use
