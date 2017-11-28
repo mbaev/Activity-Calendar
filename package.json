@@ -1,5 +1,5 @@
 {
-  "name":"js-chart-widgets",
+  "name":"activity-calendar",
   "version":"0.0.0",
   "devDependencies": {
     "jade": "0.20.3",

@@ -6,7 +6,6 @@ coffee_script = require 'coffee-script'
 read = (path) ->
   fs.readFileSync("#{__dirname}/#{path}").toString()
 
-
 task 'build', () ->
   exec 'mkdir -p lib', (e, out, err) ->
     js = [
@@ -21,7 +20,6 @@ task 'build', () ->
     closure_compiler.compile js, opt, (e, js) ->
       throw e if e
       fs.writeFileSync "#{__dirname}/lib/activity-calendar.min.js", js
-
 
 task 'test', () ->
   throw new Error "TODO"

@@ -36,9 +36,9 @@ class Calendar extends Element
 
     for [date, points] in data
       coord = datestr_coord_map[date]
-      interval = intervals[key+1] for i, key in intervals when i < points
+      interval = intervals[key + 1] for i, key in intervals when i < points
       days[coord].setStyles(background: color, opacity: 1 / maxInterval * interval) if coord
-      days[coord]._.setAttribute 'title', date
+      days[coord]._.setAttribute 'title', date + ', ' + points + ' points'
 
   getColor: (points) ->
 
