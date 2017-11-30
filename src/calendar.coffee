@@ -3,7 +3,7 @@ class Calendar extends Element
     super 'div', 'Calendar'
     document.getElementById(container).appendChild @_ if container
     intervals = intervals || [4, 10, 15, 20]
-    maxInterval = intervals[intervals.length - 1]
+    maxInterval = intervals.length
 
     dayHolder = @makeHolder data, day_size, num_weeks
     datestr_coord_map = {}
@@ -36,12 +36,14 @@ class Calendar extends Element
 
     for [date, points] in data
       coord = datestr_coord_map[date]
-      interval = intervals[key + 1] for i, key in intervals when i < points
-      days[coord].setStyles(background: color, opacity: 1 / maxInterval * interval) if coord
-      days[coord]._.setAttribute 'title', date + ', ' + points + ' points'
+      if coord && points > 0
+        interval = 0
+        for i, key in intervals
+          interval = key+1
+          break if i >= points
 
-  getColor: (points) ->
-
+        days[coord].setStyles(background: color, opacity: 1 / maxInterval * interval)
+        days[coord]._.setAttribute 'title', date + ', ' + points + ' point(s)'
 
   makeHolder: (data, day_size, num_weeks) ->
     w = (day_size * num_weeks) + (1 * (num_weeks + 1))
